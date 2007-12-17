@@ -24,7 +24,6 @@ BuildRequires:	libMesaGLU-devel
 BuildRequires:	tcl tcl-devel
 BuildRequires:	texinfo
 Conflicts:	tuxracer
-BuildRoot:	%_tmppath/%name-%version-%release-root
 
 %description
 Wherever Racer is a simple OpenGL-based racing game featuring Tux.
