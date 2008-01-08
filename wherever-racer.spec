@@ -20,7 +20,7 @@ BuildRequires:	SDL_mixer-devel
 BuildRequires:	libx11-static-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	esound-devel
-BuildRequires:	libMesaGLU-devel
+BuildRequires:	mesaglu-devel
 BuildRequires:	tcl tcl-devel
 BuildRequires:	texinfo
 Conflicts:	tuxracer
