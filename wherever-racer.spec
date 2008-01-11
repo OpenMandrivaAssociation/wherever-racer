@@ -72,16 +72,6 @@ Type=Application
 Categories=X-MandrivaLinux-MoreApplications-Games-Sports;Game;SportsGame;
 EOF
 
-install -d %buildroot/%_menudir
-cat <<EOF > %buildroot/%_menudir/%name
-?package(%{name}):command="soundwrapper %_gamesbindir/tuxracer" \
-		  icon="%{name}.png" \
-		  needs="x11" \
-		  section="Amusement/Sports" \
-		  title="Tuxracer"\
-		  longtitle="A great racing game starring Tux" \
-		  xdg="true"
-EOF
 
 chmod -R a+rX %buildroot/%_gamesdatadir/tuxracer/ 
 
@@ -108,7 +98,6 @@ rm -fr %buildroot
 #
 #
 #
-%_menudir/*
 %{_datadir}/applications/mandriva-%{name}.desktop
 #
 #
