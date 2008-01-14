@@ -42,7 +42,11 @@ to use themes, such as golf or open (set it in your ~/.tuxracer/options).
 %patch2 -p1 -b .ia64
 
 %build
-%configure2_5x --with-data-dir=%{_gamesdatadir}/tuxracer/
+# don't use -Wall, I am *not* fixing warnings in years old obsolete
+# code... - AdamW 2008/01
+sed -i -e 's,-Wall,,g' configure
+
+%configure2_5x --with-tcl-libs=%{_libdir} --with-data-dir=%{_gamesdatadir}/tuxracer/
 %make
 
 %install
