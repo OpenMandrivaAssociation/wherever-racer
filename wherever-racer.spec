@@ -18,6 +18,8 @@ Patch1:		%{name}-0.1-config.patch
 Patch2:		%{name}-0.1-ia64.patch
 BuildRequires:	libSDL_mixer-devel
 BuildRequires:	libx11-static-devel
+BuildRequires:	libxi-devel
+BuildRequires:	libxmu-devel
 BuildRequires:	alsa-lib-devel
 BuildRequires:	esound-devel
 BuildRequires:	mesaglu-devel
