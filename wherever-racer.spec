@@ -3,7 +3,7 @@
 Summary:	Racing game based on Tux Racer
 Name:		wherever-racer
 Version:	0.1
-Release:	%mkrel 5
+Release:	%mkrel 7
 License:	GPLv2+
 Group:		Games/Sports
 URL:		http://linuxprocess.tuxfamily.org/
