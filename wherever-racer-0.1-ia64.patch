@@ -1,0 +1,105 @@
+--- tuxracer-0.61/src/view.c.ia64	Thu Nov  8 11:56:54 2001
++++ tuxracer-0.61/src/view.c	Thu Nov  8 15:11:31 2001
+@@ -357,7 +357,7 @@
+ 		  ( speed - NO_INTERPOLATION_SPEED ) /
+ 		  ( BASELINE_INTERPOLATION_SPEED - NO_INTERPOLATION_SPEED )));
+ 
+-    up_dir = make_vector( 0, 1, 0 );
++    up_dir = make_vector( 0.0, 1.0, 0.0 );
+ 
+     vel_dir = plyr->vel;
+     normalize_vector( &vel_dir );
+@@ -371,7 +371,7 @@
+ 	/* Camera-on-a-string mode */
+ 
+ 	/* Construct vector from player to camera */
+-	view_vec = make_vector( 0, 
++	view_vec = make_vector( 0.0, 
+ 				sin( ANGLES_TO_RADIANS( 
+ 				    course_angle -
+ 				    CAMERA_ANGLE_ABOVE_SLOPE + 
+@@ -406,6 +406,7 @@
+         } 
+ 
+ 	/* Interpolate view point */
++#if !defined(__ia64__)
+ 	if ( plyr->view.initialized ) {
+ 	    /* Interpolate twice to get a second-order filter */
+ 	    int i;
+@@ -418,7 +419,7 @@
+ 					  time_constant_mult );
+ 	    }
+ 	}
+-
++#endif
+ 	/* Make sure interpolated view point is above terrain */
+         ycoord = find_y_coord( view_pt.x, view_pt.z );
+ 
+@@ -437,6 +438,7 @@
+ 	view_dir = scale_vector( -1.0, 
+ 				 transform_vector( rot_mat, view_vec ) );
+ 
++#if !defined(__ia64__)
+ 	/* Interpolate orientation of camera */
+ 	if ( plyr->view.initialized ) {
+ 	    /* Interpolate twice to get a second-order filter */
+@@ -448,7 +450,7 @@
+ 		up_dir = make_vector( 0.0, 1.0, 0.0 );
+ 	    }
+ 	}
+-
++#endif
+         break;
+     }
+ 
+@@ -456,7 +458,7 @@
+     {
+ 	/* Camera follows player (above and behind) */
+ 
+-	up_dir = make_vector( 0, 1, 0 );
++	up_dir = make_vector( 0.0, 1.0, 0.0 );
+ 
+ 	/* Construct vector from player to camera */
+ 	view_vec = make_vector( 0, 
+@@ -493,6 +495,7 @@
+             view_pt.y = ycoord + MIN_CAMERA_HEIGHT;
+ 	}
+ 
++#if !defined(__ia64__)
+ 	/* Interpolate view point */
+ 	if ( plyr->view.initialized ) {
+ 	    /* Interpolate twice to get a second-order filter */
+@@ -506,6 +509,7 @@
+ 					  time_constant_mult );
+ 	    }
+ 	}
++#endif
+ 
+ 	/* Make sure interpolate view point is above terrain */
+         ycoord = find_y_coord( view_pt.x, view_pt.z );
+@@ -525,6 +529,7 @@
+ 	view_dir = scale_vector( -1.0, 
+ 				 transform_vector( rot_mat, view_vec ) );
+ 
++#if !defined(__ia64__)
+ 	/* Interpolate orientation of camera */
+ 	if ( plyr->view.initialized ) {
+ 	    /* Interpolate twice to get a second-order filter */
+@@ -536,7 +541,7 @@
+ 		up_dir = make_vector( 0.0, 1.0, 0.0 );
+ 	    }
+ 	}
+-
++#endif
+         break;
+     }
+ 
+@@ -544,7 +549,7 @@
+     {
+ 	/* Camera always uphill of player */
+ 
+-	up_dir = make_vector( 0, 1, 0 );
++	up_dir = make_vector( 0.0, 1.0, 0.0 );
+ 
+ 
+ 	/* Construct vector from player to camera */

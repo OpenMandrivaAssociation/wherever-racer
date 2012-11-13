@@ -1,0 +1,38 @@
+--- tuxracer-0.61/configure.config	2001-01-23 21:12:19.000000000 +0100
++++ tuxracer-0.61/configure	2002-07-26 15:34:21.000000000 +0200
+@@ -1795,13 +1795,13 @@
+ 
+ 
+ TR_CPPFLAGS=""
+-TR_CFLAGS="-O2 -Wall -fomit-frame-pointer -ffast-math -fexpensive-optimizations"
+-TR_CXXFLAGS="-O2 -Wall -fomit-frame-pointer -ffast-math -fexpensive-optimizations"
++TR_CFLAGS="$RPM_OPT_FLAGS -Wall -fomit-frame-pointer -ffast-math -fexpensive-optimizations"
++TR_CXXFLAGS="$RPM_OPT_FLAGS -Wall -fomit-frame-pointer -ffast-math -fexpensive-optimizations"
+ TR_LIBS=""
+ 
+ case "$host" in
+-i*86-*-*) TR_CFLAGS="$TR_CFLAGS -malign-loops=2 -malign-jumps=2 -malign-functions=2";
+-          TR_CXXFLAGS="$TR_CXXFLAGS -malign-loops=2 -malign-jumps=2 -malign-functions=2";;
++i*86-*-*) TR_CFLAGS="$TR_CFLAGS -falign-loops=2 -falign-jumps=2 -falign-functions=2";
++          TR_CXXFLAGS="$TR_CXXFLAGS -falign-loops=2 -falign-jumps=2 -falign-functions=2";;
+ alpha*-*-linux-*) TR_CFLAGS="$TR_CFLAGS -mieee";;
+ esac
+ 
+@@ -3417,7 +3417,7 @@
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   ac_save_LIBS="$LIBS"
+-LIBS="-lSDL_mixer  $LIBS"
++LIBS="-lSDL_mixer -lsmpeg  $LIBS"
+ cat > conftest.$ac_ext <<EOF
+ #line 3423 "configure"
+ #include "confdefs.h"
+@@ -3454,7 +3454,7 @@
+ 
+ 	if test "x$have_SDL_mixer" = "xyes" ; then 
+ 	    TR_CPPFLAGS="$TR_CPPFLAGS -DHAVE_SDL_MIXER=1" 
+-	    TR_LIBS="$TR_LIBS -lSDL_mixer"
++	    TR_LIBS="$TR_LIBS -lSDL_mixer -lsmpeg"
+ 	else
+ 	    echo "*** SDL_mixer not found.  Configuring without audio support."
+ 	fi
