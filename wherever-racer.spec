@@ -6,7 +6,7 @@ Version:	0.1
 Release:	%mkrel 11
 License:	GPLv2+
 Group:		Games/Sports
-URL:		http://linuxprocess.tuxfamily.org/
+URL:		https://linuxprocess.tuxfamily.org/
 Source:		%{name}-src-%{version}.tgz
 Source1:	%{name}-data-%{version}.tgz
 Source2:	%{name}-addon-%{version}.tgz
