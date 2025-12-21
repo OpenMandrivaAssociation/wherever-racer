@@ -16,6 +16,11 @@ Source5:	%{name}-48x48.png
 Patch0:		%{name}-0.1-gcc33.patch
 Patch1:		%{name}-0.1-config.patch
 Patch2:		%{name}-0.1-ia64.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libSDL_mixer-devel
 BuildRequires:	libx11-static-devel
 BuildRequires:	libxi-devel
